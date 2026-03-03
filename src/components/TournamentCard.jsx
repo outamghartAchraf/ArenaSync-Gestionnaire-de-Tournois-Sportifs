@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import StatusBadge from './StatusBadge';
 
 export default function TournamentCard({ tournament }) {
@@ -15,6 +16,10 @@ export default function TournamentCard({ tournament }) {
       className="bg-white rounded-3xl p-4 shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
       
     >
+     <Link
+            to={`/tournament/${tournament.id}`}
+            className= "underline" style={{textDecoration:"none"}}
+          >
       <div className="flex gap-3 mb-3">
         <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 ${
           tournament.sport === 'basketball' ? 'bg-orange-100 text-orange-500' : 'bg-purple-100 text-purple-600'
@@ -49,6 +54,7 @@ export default function TournamentCard({ tournament }) {
           <span>{tournament.location}</span>
         </div>
       </div>
+     </Link>
     </div>
   );
 }
