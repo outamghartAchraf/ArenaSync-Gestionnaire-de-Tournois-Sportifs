@@ -1,4 +1,5 @@
- 
+import StatusBadge from './StatusBadge';
+
 export default function TournamentCard({ tournament }) {
   const getIconClass = (icon) => {
     const iconMap = {
@@ -12,7 +13,7 @@ export default function TournamentCard({ tournament }) {
   return (
     <div 
       className="bg-white rounded-3xl p-4 shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
-    
+      
     >
       <div className="flex gap-3 mb-3">
         <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 ${
@@ -22,7 +23,7 @@ export default function TournamentCard({ tournament }) {
         </div>
         <div className="flex-1">
           <h3 className="text-base font-semibold text-gray-900">{tournament.title}</h3>
-          
+          <StatusBadge status={tournament.status} statusClass={tournament.statusClass} />
         </div>
       </div>
 
