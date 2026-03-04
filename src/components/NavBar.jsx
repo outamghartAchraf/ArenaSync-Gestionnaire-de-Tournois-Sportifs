@@ -22,7 +22,7 @@ export default function NavBar() {
           key={item.path}
           to={item.path}
           className={`flex flex-col items-center gap-1 py-2 px-4 transition-all ${
-            isActive(item.path) ? 'text-purple-600' : 'text-gray-500 hover:text-purple-600'
+            isActive(item.path) ? 'text-blue-600' : 'text-gray-500 hover:text-purple-600'
           }`}
         >
           <i className={`${item.icon} text-xl`}></i>

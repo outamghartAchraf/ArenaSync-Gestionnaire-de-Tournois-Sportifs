@@ -1,18 +1,21 @@
+import { useState } from "react"
 import TournamentList from "../components/TournamentList"
+import { filterByCategory } from "../services/dataFilter"
+import CategoryFilter from "../components/CategoryFilter"
 
 function Home({tournaments}) {
+ 
+
 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
-      {/* Status Bar */}
-      <div className="flex justify-between items-center px-5 py-2 text-white text-sm font-semibold">
- 
-      </div>
+   
+      <div className="flex justify-between items-center px-5 py-2 text-white text-sm font-semibold"></div>
 
-            {/* Container */}
+  
       <div className="px-5 py-3">
-        {/* Header */}
+    
         <div className="flex justify-between items-start mb-5">
           <h1 className="text-2xl font-bold text-white leading-tight">
             Good Morning,<br />Samuel Walker!
@@ -28,7 +31,14 @@ function Home({tournaments}) {
             />
           </div>
         </div>
-        <TournamentList tournaments={tournaments} />
+
+            <CategoryFilter
+          tournaments={tournaments}
+          selectedSport={selectedSport}
+          setSelectedSport={setSelectedSport}
+        />
+
+        <TournamentList tournaments={filteredTournaments} />
     </div>
       
       
