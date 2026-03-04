@@ -4,7 +4,9 @@ import { filterByCategory } from "../services/dataFilter"
 import CategoryFilter from "../components/CategoryFilter"
 
 function Home({tournaments}) {
- 
+    const [selectedSport, setSelectedSport] = useState("All")
+
+    const filteredTournaments = filterByCategory(tournaments, selectedSport)
 
 
 
