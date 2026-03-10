@@ -1,39 +1,37 @@
-import { useParams, useNavigate } from 'react-router-dom'
-import StatusBadge from '../components/StatusBadge'
-import ParticipantsList from '../components/ParticipantsList'
-import { tournaments } from '../data/tournamentDB'
-import { useState } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
+import StatusBadge from "../components/StatusBadge";
+import ParticipantsList from "../components/ParticipantsList";
+import { tournaments } from "../data/tournamentDB";
+import { useState } from "react";
 
 export default function TournamentDetailsPage() {
-    const [activeTab, setActiveTab] = useState('participants');
-  const { id } = useParams()  
-  const navigate = useNavigate()
+  const [activeTab, setActiveTab] = useState("participants");
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-   
-  const tournament = tournaments.find(t => t.id === Number(id))
+  const tournament = tournaments.find((t) => t.id === Number(id));
 
-  if (!tournament) return <p className="p-6 text-white">Tournament not found</p>
+  if (!tournament)
+    return <p className="p-6 text-white">Tournament not found</p>;
 
   const getIconClass = (icon) => {
     const iconMap = {
-      badminton: 'fas fa-badminton',
-      basketball: 'fas fa-basketball',
-      tennis: 'fas fa-tennis',
-    }
-    return iconMap[icon] || 'fas fa-trophy'
-  }
+      badminton: "fas fa-trophy",
+      basketball: "fas fa-basketball-ball",
+      tennis: "fas fa-table-tennis",
+    };
+    return iconMap[icon] || "fas fa-trophy";
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
-      {/* Status Bar */}
-      <div className="flex justify-between items-center px-5 py-2 text-white text-sm font-semibold">
- 
-      </div>
+  
+      <div className="flex justify-between items-center px-5 py-2 text-white text-sm font-semibold"></div>
 
       {/* Header */}
       <div className="flex items-center gap-4 px-5 py-3">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
           className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30 transition"
         >
           <i className="fas fa-chevron-left"></i>
@@ -48,7 +46,9 @@ export default function TournamentDetailsPage() {
             <i className={getIconClass(tournament.icon)}></i>
           </div>
           <div className="flex-1">
-            <h2 className="text-white font-semibold mb-1">{tournament.title}</h2>
+            <h2 className="text-white font-semibold mb-1">
+              {tournament.title}
+            </h2>
             <StatusBadge status={tournament.status} />
           </div>
           <button className="text-white hover:bg-white/20 p-2 rounded-full transition">
@@ -56,12 +56,12 @@ export default function TournamentDetailsPage() {
           </button>
         </div>
 
-        {/* Tournament Details */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 space-y-3 mb-6 text-white text-sm">
           <div className="flex items-center gap-3">
             <i className="fas fa-users"></i>
             <span>
-              {tournament.participants}/{tournament.maxParticipants} Participants • {tournament.type}
+              {tournament.participants}/{tournament.maxParticipants}{" "}
+              Participants • {tournament.type}
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -80,14 +80,14 @@ export default function TournamentDetailsPage() {
 
         {/* Tabs */}
         <div className="flex gap-2 bg-white/10 backdrop-blur-md rounded-xl p-1 mb-6">
-          {['Info', 'Participants', 'Bracket'].map(tab => (
+          {["Info", "Participants", "Bracket"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab.toLowerCase())}
               className={`flex-1 py-2 px-3 rounded-lg text-sm font-semibold transition-all ${
                 activeTab === tab.toLowerCase()
-                  ? 'bg-white text-purple-600'
-                  : 'text-white/60 hover:text-white'
+                  ? "bg-white text-purple-600"
+                  : "text-white/60 hover:text-white"
               }`}
             >
               {tab}
@@ -95,23 +95,24 @@ export default function TournamentDetailsPage() {
           ))}
         </div>
 
-        {/* Tab Content */}
-        {activeTab === 'info' && (
+        {activeTab === "info" && (
           <div className="text-white">
             <p className="text-sm leading-relaxed">{tournament.description}</p>
           </div>
         )}
 
-        {activeTab === 'participants' && (
+        {activeTab === "participants" && (
           <ParticipantsList participants={tournament.participants_list} />
         )}
 
-        {activeTab === 'bracket' && (
+        {activeTab === "bracket" && (
           <div className="text-white text-center py-8 bg-white/10 rounded-xl">
-            <p className="text-sm text-white/60">Bracket will be displayed here</p>
+            <p className="text-sm text-white/60">
+              Bracket will be displayed here
+            </p>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }

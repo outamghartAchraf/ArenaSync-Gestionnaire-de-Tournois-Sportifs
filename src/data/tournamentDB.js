@@ -2,7 +2,7 @@ export const tournaments = [
   {
     id: 1,
     title: "Shuttle Masters League",
-    sport: "badminton",
+    sport: "badminto",
     icon: "badminton",
     status: "On Going",
     statusClass: "on-going",

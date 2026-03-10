@@ -2,7 +2,7 @@ export default function CategoryFilter({ tournaments, selectedSport, setSelected
   const sports = ["All", ...new Set(tournaments.map(t => t.sport))]
 
   return (
-    <div className="flex gap-2 mb-6 flex-wrap">
+    <div className="flex gap-2 mb-5 overflow-x-auto pb-2">
       {sports.map(sport => (
         <button
           key={sport}
