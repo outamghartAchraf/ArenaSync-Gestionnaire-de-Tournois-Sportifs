@@ -3,7 +3,7 @@ import StatusBadge from "../components/StatusBadge";
 import ParticipantsList from "../components/ParticipantsList";
 import { tournaments } from "../data/tournamentDB";
 import { useState } from "react";
-import RegistrationButton from "@/components/RegistrationButton";
+import RegistrationButton from "../components/RegistrationButton";
 
 export default function TournamentDetailsPage() {
   const [activeTab, setActiveTab] = useState("participants");
@@ -29,7 +29,7 @@ export default function TournamentDetailsPage() {
   
       <div className="flex justify-between items-center px-5 py-2 text-white text-sm font-semibold"></div>
 
-      {/* Header */}
+       
       <div className="flex items-center gap-4 px-5 py-3">
         <button
           onClick={() => navigate("/")}
@@ -40,7 +40,7 @@ export default function TournamentDetailsPage() {
         <h2 className="text-lg font-semibold text-white">Tournament</h2>
       </div>
 
-      {/* Tournament Hero */}
+     
       <div className="px-5">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 mb-5">
           <div className="w-14 h-14 rounded-lg bg-white/20 flex items-center justify-center text-3xl flex-shrink-0">
@@ -85,7 +85,7 @@ export default function TournamentDetailsPage() {
           </div>
         </div>
 
-        {/* Tabs */}
+        
         <div className="flex gap-2 bg-white/10 backdrop-blur-md rounded-xl p-1 mb-6">
           {["Info", "Participants", "Bracket"].map((tab) => (
             <button
