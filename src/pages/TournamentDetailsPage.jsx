@@ -3,6 +3,7 @@ import StatusBadge from "../components/StatusBadge";
 import ParticipantsList from "../components/ParticipantsList";
 import { tournaments } from "../data/tournamentDB";
 import { useState } from "react";
+import RegistrationButton from "@/components/RegistrationButton";
 
 export default function TournamentDetailsPage() {
   const [activeTab, setActiveTab] = useState("participants");
@@ -75,6 +76,12 @@ export default function TournamentDetailsPage() {
           <div className="flex items-center gap-3">
             <i className="fas fa-map-marker-alt"></i>
             <span>{tournament.location}</span>
+          </div>
+
+        <div className="pt-3 border-t border-white/20">
+            <RegistrationButton 
+          
+            />
           </div>
         </div>
 
