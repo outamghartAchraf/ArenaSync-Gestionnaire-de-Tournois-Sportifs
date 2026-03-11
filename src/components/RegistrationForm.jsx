@@ -13,17 +13,31 @@ function RegistrationForm() {
       <form className="space-y-4">
         <div>
           <label className="block font-semibold mb-2">Name *</label>
-          <input type="text" placeholder="Enter your full name" />
+          <input
+            type="text"
+            placeholder="Enter your full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
 
         <div>
           <label className="block font-semibold mb-2">Team *</label>
-          <input type="text" placeholder="Enter your team name" />
+          <input
+            type="text"
+            placeholder="Enter your team name"
+            value={team}
+            onChange={(e) => setTeam(e.target.value)}
+          />
         </div>
 
         <div>
           <label className="block font-semibold mb-2">Level</label>
-          <select className="w-full px-4 py-2 bg-white/10 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50">
+          <select
+            className="w-full px-4 py-2 bg-white/10 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+            value={level}
+            onChange={(e) => setLevel(e.target.value)}
+          >
             <option value="Beginner" className="bg-blue-900">
               Beginner
             </option>

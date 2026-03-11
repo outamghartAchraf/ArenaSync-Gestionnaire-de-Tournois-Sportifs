@@ -6,6 +6,8 @@ import Loader from './components/Loader';
 import TournamentDetailsPage from './pages/TournamentDetailsPage';
 import NavBar from './components/NavBar';
  
+ 
+ 
 
 
 function App() {
@@ -36,6 +38,18 @@ useEffect(() => {
             ...t,
             participants_list: [...t.participants_list, user]
           }
+        }
+      }
+      return t
+    }))
+  }
+
+  const addParticipant = (tournamentId, newParticipant) => {
+    setTournaments(tournaments.map(t => {
+      if (t.id === tournamentId) {
+        return {
+          ...t,
+          participants: [...t.participants, newParticipant]
         }
       }
       return t
