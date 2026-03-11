@@ -3,6 +3,7 @@ import StatusBadge from "../components/StatusBadge";
 import ParticipantsList from "../components/ParticipantsList";
 import { useState } from "react";
 import RegistrationButton from "../components/RegistrationButton";
+import InfoTab from "../components/InfoTab";
 
 export default function TournamentDetailsPage({toggleRegistration, tournaments}) {
   const [activeTab, setActiveTab] = useState("participants");
@@ -104,11 +105,9 @@ const getIconClass = (icon) => {
           ))}
         </div>
 
-        {activeTab === "info" && (
-          <div className="text-white">
-            <p className="text-sm leading-relaxed">{tournament.description}</p>
-          </div>
-        )}
+          {activeTab === "info" && (
+            <InfoTab tournament={tournament} />
+          )}
 
         {activeTab === "participants" && (
           <ParticipantsList participants={tournament.participants_list} />
