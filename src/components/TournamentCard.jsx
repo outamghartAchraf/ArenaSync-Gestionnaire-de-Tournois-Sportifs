@@ -76,7 +76,7 @@ export default function TournamentCard({ tournament }) {
         ) : (
           <div className="mt-3 px-3 py-2 bg-red-50 rounded-lg border border-red-200">
             <p className="text-xs font-semibold text-red-700">
-              ✗ Tournament Full
+              ✗ Tournament Ful
             </p>
           </div>
         )}
