@@ -12,6 +12,7 @@ export default function TournamentCard({ tournament }) {
     return iconMap[icon] || "fas fa-trophy";
   };
 
+  const availableSpots = tournament.maxParticipants - tournament.participants_list.length;
   return (
     <div className="bg-white rounded-3xl p-4 shadow-md hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
       <Link
@@ -65,6 +66,20 @@ export default function TournamentCard({ tournament }) {
             <span>{tournament.location}</span>
           </div>
         </div>
+
+         {availableSpots > 0 ? (
+          <div className="mt-3 px-3 py-2 bg-green-50 rounded-lg border border-green-200">
+            <p className="text-xs font-semibold text-green-700">
+              ✓ {availableSpots} spots available
+            </p>
+          </div>
+        ) : (
+          <div className="mt-3 px-3 py-2 bg-red-50 rounded-lg border border-red-200">
+            <p className="text-xs font-semibold text-red-700">
+              ✗ Tournament Full
+            </p>
+          </div>
+        )}
       </Link>
     </div>
   );
