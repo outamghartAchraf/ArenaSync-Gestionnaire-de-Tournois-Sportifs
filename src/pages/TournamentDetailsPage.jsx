@@ -4,6 +4,7 @@ import ParticipantsList from "../components/ParticipantsList";
 import { useState } from "react";
 import RegistrationButton from "../components/RegistrationButton";
 import InfoTab from "../components/InfoTab";
+import RegistrationForm from "../components/RegistrationForm";
 
 export default function TournamentDetailsPage({toggleRegistration, tournaments}) {
   const [activeTab, setActiveTab] = useState("participants");
@@ -90,7 +91,7 @@ const getIconClass = (icon) => {
 
         
         <div className="flex gap-2 bg-white/10 backdrop-blur-md rounded-xl p-1 mb-6">
-          {["Info", "Participants", "Bracket"].map((tab) => (
+          {["Info", "Participants", "Register"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab.toLowerCase())}
@@ -113,13 +114,12 @@ const getIconClass = (icon) => {
           <ParticipantsList participants={tournament.participants_list} />
         )}
 
-        {activeTab === "bracket" && (
-          <div className="text-white text-center py-8 bg-white/10 rounded-xl">
-            <p className="text-sm text-white/60">
-              Bracket will be displayed here
-            </p>
-          </div>
-        )}
+          {activeTab === "register" && (
+            <RegistrationForm 
+              tournamentId={tournament.id}
+            
+            />
+          )}
       </div>
     </div>
   );
