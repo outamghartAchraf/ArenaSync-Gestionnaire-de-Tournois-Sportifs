@@ -19,7 +19,7 @@ export default function TournamentDetailsPage({toggleRegistration, tournaments})
     return iconMap[icon] || "fas fa-trophy";
   };
   
-
+  const currentUser = { id: 999,  avatar: `https://i.pravatar.cc/56`,name: "User(you)" , team: "Team A", level: "Beginner", status: "pending"}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">

@@ -10,7 +10,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [loading, setLoading] = useState(true);
- 
+  const [tournaments, setTournaments] = useState([])
 
 useEffect(() => {
     setTimeout(() => {
