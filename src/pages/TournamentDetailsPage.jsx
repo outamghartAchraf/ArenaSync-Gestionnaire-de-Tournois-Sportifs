@@ -19,8 +19,7 @@ export default function TournamentDetailsPage({toggleRegistration, tournaments})
     return iconMap[icon] || "fas fa-trophy";
   };
   
-  
-  const isRegistered = tournament.participants.some((p) => p.id === id);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
