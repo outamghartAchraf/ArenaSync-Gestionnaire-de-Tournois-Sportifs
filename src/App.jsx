@@ -10,7 +10,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [tournaments, setTournaments] = useState([])
+ 
 
 useEffect(() => {
     setTimeout(() => {
@@ -21,26 +21,7 @@ useEffect(() => {
 
   if (loading) return <Loader />; 
   
-  const toggleRegistration = (tournamentId, user) => {
-    setTournaments(tournaments.map(t => {
-      if (t.id === tournamentId) {
-        const isRegistered = t.participants.find(p => p.id === user.id)
-        
-        if (isRegistered) {
-          return {
-            ...t,
-            participants: t.participants.filter(p => p.id !== user.id)
-          }
-        } else {
-          return {
-            ...t,
-            participants: [...t.participants, user]
-          }
-        }
-      }
-      return t
-    }))
-  }
+  
 
   return (
     <>
