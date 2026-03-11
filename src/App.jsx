@@ -24,17 +24,17 @@ useEffect(() => {
   const toggleRegistration = (tournamentId, user) => {
     setTournaments(tournaments.map(t => {
       if (t.id === tournamentId) {
-        const isRegistered = t.participants.find(p => p.id === user.id)
+        const isRegistered = t.participants_list.find(p => p.id === user.id)
         
         if (isRegistered) {
           return {
             ...t,
-            participants: t.participants.filter(p => p.id !== user.id)
+            participants_list: t.participants_list.filter(p => p.id !== user.id)
           }
         } else {
           return {
             ...t,
-            participants: [...t.participants, user]
+            participants_list: [...t.participants_list, user]
           }
         }
       }

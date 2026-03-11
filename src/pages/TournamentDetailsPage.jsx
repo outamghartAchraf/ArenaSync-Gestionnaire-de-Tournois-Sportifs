@@ -10,7 +10,12 @@ export default function TournamentDetailsPage({toggleRegistration, tournaments})
   const navigate = useNavigate();
 
   const tournament = tournaments.find((t) => t.id === Number(id));
-   const getIconClass = (icon) => {
+
+  
+  const currentUser = { id: 999,  avatar: `https://i.pravatar.cc/56`,name: "User(you)" , team: "Team A", level: "Beginner", status: "pending"}
+  const isRegistered = tournament.participants_list.find(p => p.id === currentUser.id);
+
+const getIconClass = (icon) => {
     const iconMap = {
       badminton: "fas fa-trophy",
       basketball: "fas fa-basketball-ball",
@@ -18,9 +23,6 @@ export default function TournamentDetailsPage({toggleRegistration, tournaments})
     };
     return iconMap[icon] || "fas fa-trophy";
   };
-  
-  const currentUser = { id: 999,  avatar: `https://i.pravatar.cc/56`,name: "User(you)" , team: "Team A", level: "Beginner", status: "pending"}
- const isRegistered = tournament.participants.some(p => p.id === currentUser.id)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
@@ -78,7 +80,8 @@ export default function TournamentDetailsPage({toggleRegistration, tournaments})
 
         <div className="pt-3 border-t border-white/20">
             <RegistrationButton 
-            
+            isRegistered = {isRegistered}
+            onClick={() => toggleRegistration(tournament.id, currentUser)}
                
             />
           </div>
