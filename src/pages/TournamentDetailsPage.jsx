@@ -1,21 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
 import StatusBadge from "../components/StatusBadge";
 import ParticipantsList from "../components/ParticipantsList";
-import { tournaments } from "../data/tournamentDB";
 import { useState } from "react";
 import RegistrationButton from "../components/RegistrationButton";
 
-export default function TournamentDetailsPage() {
+export default function TournamentDetailsPage({toggleRegistration, tournaments}) {
   const [activeTab, setActiveTab] = useState("participants");
   const { id } = useParams();
   const navigate = useNavigate();
 
   const tournament = tournaments.find((t) => t.id === Number(id));
-
-  if (!tournament)
-    return <p className="p-6 text-white">Tournament not found</p>;
-
-  const getIconClass = (icon) => {
+   const getIconClass = (icon) => {
     const iconMap = {
       badminton: "fas fa-trophy",
       basketball: "fas fa-basketball-ball",
@@ -23,6 +18,9 @@ export default function TournamentDetailsPage() {
     };
     return iconMap[icon] || "fas fa-trophy";
   };
+  
+  
+  const isRegistered = tournament.participants.some((p) => p.id === id);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
@@ -80,7 +78,8 @@ export default function TournamentDetailsPage() {
 
         <div className="pt-3 border-t border-white/20">
             <RegistrationButton 
-          
+            
+               
             />
           </div>
         </div>

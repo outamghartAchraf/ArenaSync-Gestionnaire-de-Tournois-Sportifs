@@ -21,31 +21,37 @@ useEffect(() => {
 
   if (loading) return <Loader />; 
   
-  const toggleRegistration = (tournamentsId, user) => {
-
-    setTournaments(tournaments => tournaments.map(t => {
-      if(t.id === tournamentsId) {
-        const isRegsiter = t.participants.find((p) => p.id === user.id);
-        if(isRegsiter){
+  const toggleRegistration = (tournamentId, user) => {
+    setTournaments(tournaments.map(t => {
+      if (t.id === tournamentId) {
+        const isRegistered = t.participants.find(p => p.id === user.id)
+        
+        if (isRegistered) {
           return {
             ...t,
-            participants: t.participants.filter((p) => p.id !== user.id)
+            participants: t.participants.filter(p => p.id !== user.id)
           }
-        }else{
+        } else {
           return {
             ...t,
             participants: [...t.participants, user]
           }
-
+        }
       }
+      return t
     }))
   }
+
   return (
     <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element= {<HomePage tournaments = {tournaments} />} />
-         <Route path="/tournament/:id" element={<TournamentDetailsPage tournaments = {tournaments}  />} />
+         <Route path="/tournament/:id"
+          element = {<TournamentDetailsPage
+           tournaments = {tournaments}
+           toggleRegistration={toggleRegistration}
+           />} />
       </Routes>
           <NavBar />
     </BrowserRouter>
