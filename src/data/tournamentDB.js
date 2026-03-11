@@ -19,6 +19,7 @@ export const tournaments = [
         name: "Ethan Miller",
         avatar: "https://i.pravatar.cc/60?img=1",
         status: "Pending",
+        team: "Team A", level: "Intermediate",
         statusClass: "pending"
       },
       {
@@ -26,6 +27,7 @@ export const tournaments = [
         name: "Noah Smith",
         avatar: "https://i.pravatar.cc/60?img=2",
         status: "Confirmed",
+        team: "Team A", level: "Advanced",
         statusClass: "confirmed"
       },
       {
@@ -33,6 +35,7 @@ export const tournaments = [
         name: "James Anderson",
         avatar: "https://i.pravatar.cc/60?img=3",
         status: "Confirmed",
+        team: "Team B", level: "Beginner",
         statusClass: "confirmed"
       },
       {
@@ -40,6 +43,7 @@ export const tournaments = [
         name: "David Hall",
         avatar: "https://i.pravatar.cc/60?img=4",
         status: "Confirmed",
+        team: "Team C", level: "Intermediate",
         statusClass: "confirmed"
       },
       {
@@ -47,6 +51,7 @@ export const tournaments = [
         name: "Aiden Davis",
         avatar: "https://i.pravatar.cc/60?img=5",
         status: "Pending",
+        team: "Team D", level: "Beginner",
         statusClass: "pending"
       },
       {
@@ -54,6 +59,7 @@ export const tournaments = [
         name: "Daniel Thomas",
         avatar: "https://i.pravatar.cc/60?img=6",
         status: "Confirmed",
+        team: "Team E", level: "Advanced",
         statusClass: "confirmed"
       }
     ]
@@ -78,6 +84,7 @@ export const tournaments = [
         name: "Michael Johnson",
         avatar: "https://i.pravatar.cc/60?img=7",
         status: "Confirmed",
+        team: "Team A", level: "Intermediate",
         statusClass: "confirmed"
       },
       {
@@ -85,6 +92,7 @@ export const tournaments = [
         name: "Chris Williams",
         avatar: "https://i.pravatar.cc/60?img=8",
         status: "Confirmed",
+        team: "Team B", level: "Advanced",
         statusClass: "confirmed"
       },
       {
@@ -92,6 +100,7 @@ export const tournaments = [
         name: "Alex Brown",
         avatar: "https://i.pravatar.cc/60?img=9",
         status: "Pending",
+        team: "Team A", level: "Intermediate",
         statusClass: "pending"
       }
     ]
@@ -116,14 +125,18 @@ export const tournaments = [
         name: "Sarah Wilson",
         avatar: "https://i.pravatar.cc/60?img=10",
         status: "Confirmed",
-        statusClass: "confirmed"
+        statusClass: "confirmed",
+        team: "Team A",
+        level: "Intermediate"
       },
       {
         id: 11,
         name: "Emma Davis",
         avatar: "https://i.pravatar.cc/60?img=11",
         status: "Confirmed",
-        statusClass: "confirmed"
+        statusClass: "confirmed",
+        team: "Team B",
+        level: "Advanced"
       }
     ]
   }
