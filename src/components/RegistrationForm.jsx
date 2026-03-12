@@ -105,7 +105,11 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
         <button
           type="submit"
           disabled={!isFormValid}
-          className={`w-full py-3 rounded-lg font-bold transition ${isFormValid ? "bg-white/20 text-white hover:bg-white/30 cursor-pointer border border-white/30" : "bg-gray-500 text-gray-300 cursor-not-allowed border border-gray-500"}`}
+            className={`w-full py-3 rounded-lg font-bold transition ${
+            isFormValid
+              ? "bg-white/20 text-white hover:bg-white/30 cursor-pointer border border-white/30"
+              : "bg-white/10 text-white/50 cursor-not-allowed border border-white/20"
+          }`}
         >
           {isFormValid ? "Register" : "Complete form to register"}
         </button>

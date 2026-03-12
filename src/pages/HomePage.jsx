@@ -3,6 +3,7 @@ import TournamentList from "../components/TournamentList";
 import { filterByCategory } from "../services/dataFilter";
 import CategoryFilter from "../components/CategoryFilter";
 import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
 
 function Home({ tournaments }) {
   const [selectedSport, setSelectedSport] = useState("All");
@@ -15,6 +16,7 @@ function Home({ tournaments }) {
 
       <div className="px-5 py-3">
          <Header />
+         <SearchBar />
 
         <CategoryFilter
           tournaments={tournaments}
