@@ -65,6 +65,7 @@ useEffect(() => {
           element = {<TournamentDetailsPage
            tournaments = {tournaments}
            toggleRegistration={toggleRegistration}
+            onAddParticipant={addParticipant}
            />} />
       </Routes>
           <NavBar />

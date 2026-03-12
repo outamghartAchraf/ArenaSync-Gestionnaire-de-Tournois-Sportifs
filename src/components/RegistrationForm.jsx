@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function RegistrationForm() {
+function RegistrationForm({tournamentId, onAddParticipant}) {
   const [name, setName] = useState("");
   const [team, setTeam] = useState("");
   const [level, setLevel] = useState("Beginner");
@@ -22,12 +22,27 @@ function RegistrationForm() {
   }
 
   const handleSubmit = (e) => {
-    
+
     e.preventDefault();
     if(!validateForm()) {
       return;
     }
 
+    const newParticipant = {
+      id: Date.now(),
+      name: name,
+      team: team,
+      level: level,
+      status: "Pending",
+      avatar: `https://i.pravatar.cc/56?img=${Date.now() % 70}`
+      
+    }
+     onAddParticipant(tournamentId, newParticipant);
+
+     setName("");
+     setTeam("");
+     setLevel("Beginner");
+     setErrors({});
 
   }
 

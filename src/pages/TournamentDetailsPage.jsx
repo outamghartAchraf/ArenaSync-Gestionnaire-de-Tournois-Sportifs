@@ -6,7 +6,7 @@ import RegistrationButton from "../components/RegistrationButton";
 import InfoTab from "../components/InfoTab";
 import RegistrationForm from "../components/RegistrationForm";
 
-export default function TournamentDetailsPage({toggleRegistration, tournaments}) {
+export default function TournamentDetailsPage({toggleRegistration, tournaments, onAddParticipant}) {
   const [activeTab, setActiveTab] = useState("participants");
   const { id } = useParams();
   const navigate = useNavigate();
@@ -116,7 +116,8 @@ const getIconClass = (icon) => {
 
           {activeTab === "register" && (
             <RegistrationForm 
-              tournamentId={tournament.id}
+              tournamentId={tournament.id}                   
+              onAddParticipant={onAddParticipant}
             
             />
           )}
