@@ -50,24 +50,31 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-white">
       <h3 className="text-xl font-bold mb-4">Register for Tournament</h3>
 
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
-          <label className="block font-semibold mb-2">Name *</label>
+          <label className="block font-semibold mb-2">Name </label>
           <input
             type="text"
             placeholder="Enter your full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className={`w-full px-4 py-2 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 ${
+            errors.name ? "border-red-500 focus:ring-red-500" : "border-white/30 focus:ring-white/50"
+            }`}
           />
+            {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
         </div>
-
+         
         <div>
-          <label className="block font-semibold mb-2">Team *</label>
+          <label className="block font-semibold mb-2">Team </label>
           <input
             type="text"
             placeholder="Enter your team name"
             value={team}
             onChange={(e) => setTeam(e.target.value)}
+            className={`w-full px-4 py-2 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 ${
+              errors.team ? "border-red-500 focus:ring-red-500" : "border-white/30 focus:ring-white/50"
+            }`}
           />
         </div>
 
