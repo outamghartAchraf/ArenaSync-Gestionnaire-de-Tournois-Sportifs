@@ -6,6 +6,11 @@ function RegistrationForm() {
   const [level, setLevel] = useState("Beginner");
   const [errors, setErrors] = useState({});
 
+  const validateForm = () => {
+    
+
+  }
+
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-white">
       <h3 className="text-xl font-bold mb-4">Register for Tournament</h3>
