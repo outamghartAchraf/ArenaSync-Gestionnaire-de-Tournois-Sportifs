@@ -7,7 +7,11 @@ function RegistrationForm() {
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
-    
+    const newErrors = {};
+
+    if (!name.match(/^[a-zA-Z\s]{2,}$/)) {
+      newErrors.name = "Name must be at least 2 letters"
+    }
 
   }
 
