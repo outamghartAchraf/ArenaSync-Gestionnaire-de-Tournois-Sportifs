@@ -7,8 +7,10 @@ import SearchBar from "../components/SearchBar";
 
 function Home({ tournaments }) {
   const [selectedSport, setSelectedSport] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTournaments = filterByCategory(tournaments, selectedSport);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
@@ -16,7 +18,7 @@ function Home({ tournaments }) {
 
       <div className="px-5 py-3">
          <Header />
-         <SearchBar />
+         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
         <CategoryFilter
           tournaments={tournaments}
