@@ -49,7 +49,7 @@ useEffect(() => {
       if (t.id === tournamentId) {
         return {
           ...t,
-          participants: [...t.participants, newParticipant]
+          participants_list: [...t.participants_list, newParticipant]
         }
       }
       return t

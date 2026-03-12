@@ -9,8 +9,8 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!name.match(/^[a-zA-Z\s]{2,}$/)) {
-      newErrors.name = "Name must be at least 2 letters"
+    if (!name.match(/^[a-zA-Z\s]{6,}$/)) {
+      newErrors.name = "Name must be at least 6 letters"
     }
      
     if(!team.trim()) {
@@ -43,8 +43,11 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
      setTeam("");
      setLevel("Beginner");
      setErrors({});
+     alert("Registration successful")
 
   }
+
+  const isFormValid = name.trim() !== "" && team.trim() !== "";
 
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-white">
@@ -59,10 +62,10 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className={`w-full px-4 py-2 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 ${
-            errors.name ? "border-red-500 focus:ring-red-500" : "border-white/30 focus:ring-white/50"
+            errors.name ? "border-red-700 focus:ring-red-700" : "border-white/30 focus:ring-white/50"
             }`}
           />
-            {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-red-700 text-sm mt-1">{errors.name}</p>}
         </div>
          
         <div>
@@ -73,11 +76,11 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
             value={team}
             onChange={(e) => setTeam(e.target.value)}
             className={`w-full px-4 py-2 bg-white/10 border rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 ${
-              errors.team ? "border-red-500 focus:ring-red-500" : "border-white/30 focus:ring-white/50"
+              errors.team ? "border-red-700 focus:ring-red-700" : "border-white/30 focus:ring-white/50"
             }`}
           />
 
-           {errors.team && <p className="text-red-300 text-sm mt-1">{errors.team}</p>}
+           {errors.team && <p className="text-red-700 text-sm mt-1">{errors.team}</p>}
         </div>
 
         <div>
@@ -101,9 +104,10 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
 
         <button
           type="submit"
-          className={`w-full py-3 rounded-lg font-bold transition ${"bg-white/20 text-white hover:bg-white/30 cursor-pointer border border-white/30"}`}
+          disabled={!isFormValid}
+          className={`w-full py-3 rounded-lg font-bold transition ${isFormValid ? "bg-white/20 text-white hover:bg-white/30 cursor-pointer border border-white/30" : "bg-gray-500 text-gray-300 cursor-not-allowed border border-gray-500"}`}
         >
-          Register
+          Register 
         </button>
       </form>
     </div>
