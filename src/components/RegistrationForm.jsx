@@ -12,7 +12,13 @@ function RegistrationForm() {
     if (!name.match(/^[a-zA-Z\s]{2,}$/)) {
       newErrors.name = "Name must be at least 2 letters"
     }
+     
+    if(!team.trim()) {
+      newErrors.team = "Team name is required"
+    }
 
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   }
 
   return (
