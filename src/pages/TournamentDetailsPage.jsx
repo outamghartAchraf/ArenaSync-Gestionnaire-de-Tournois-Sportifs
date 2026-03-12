@@ -30,8 +30,7 @@ const getIconClass = (icon) => {
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pb-24">
   
       <div className="flex justify-between items-center px-5 py-2 text-white text-sm font-semibold"></div>
-
-       
+  
       <div className="flex items-center gap-4 px-5 py-3">
         <button
           onClick={() => navigate("/")}
@@ -40,9 +39,7 @@ const getIconClass = (icon) => {
           <i className="fas fa-chevron-left"></i>
         </button>
         <h2 className="text-lg font-semibold text-white">Tournament</h2>
-      </div>
-
-     
+      </div>  
       <div className="px-5">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 mb-5">
           <div className="w-14 h-14 rounded-lg bg-white/20 flex items-center justify-center text-3xl flex-shrink-0">
@@ -58,7 +55,6 @@ const getIconClass = (icon) => {
             <i className="fas fa-share-alt"></i>
           </button>
         </div>
-
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 space-y-3 mb-6 text-white text-sm">
           <div className="flex items-center gap-3">
             <i className="fas fa-users"></i>
@@ -87,9 +83,7 @@ const getIconClass = (icon) => {
                
             />
           </div>
-        </div>
-
-        
+        </div>      
         <div className="flex gap-2 bg-white/10 backdrop-blur-md rounded-xl p-1 mb-6">
           {["Info", "Participants", "Register"].map((tab) => (
             <button

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import TournamentList from "../components/TournamentList";
-import { filterByCategory } from "../services/dataFilter";
 import CategoryFilter from "../components/CategoryFilter";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
@@ -9,7 +8,16 @@ function Home({ tournaments }) {
   const [selectedSport, setSelectedSport] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredTournaments = filterByCategory(tournaments, selectedSport);
+  const filtered = tournaments.filter((t) => {
+
+    const sportMatch = selectedSport === "All" || t.sport === selectedSport;
+
+    const searchMatch =
+      t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.location.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return sportMatch && searchMatch;
+  });
 
 
   return (
@@ -26,7 +34,7 @@ function Home({ tournaments }) {
           setSelectedSport={setSelectedSport}
         />
 
-        <TournamentList tournaments={filteredTournaments} />
+        <TournamentList tournaments={filtered} />
       </div>
     </div>
   );

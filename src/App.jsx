@@ -6,9 +6,6 @@ import Loader from './components/Loader';
 import TournamentDetailsPage from './pages/TournamentDetailsPage';
 import NavBar from './components/NavBar';
  
- 
- 
-
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -61,6 +58,7 @@ useEffect(() => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element= {<HomePage tournaments = {tournaments} />} />
+
          <Route path="/tournament/:id"
           element = {<TournamentDetailsPage
            tournaments = {tournaments}
