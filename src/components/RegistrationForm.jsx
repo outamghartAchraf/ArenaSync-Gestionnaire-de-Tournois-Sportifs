@@ -76,6 +76,8 @@ function RegistrationForm({tournamentId, onAddParticipant}) {
               errors.team ? "border-red-500 focus:ring-red-500" : "border-white/30 focus:ring-white/50"
             }`}
           />
+
+           {errors.team && <p className="text-red-300 text-sm mt-1">{errors.team}</p>}
         </div>
 
         <div>
